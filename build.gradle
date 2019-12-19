@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group 'com.revolut'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = 'com.revolut.TransactionApplicationKt'
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    compile 'com.sparkjava:spark-kotlin:1.0.0-alpha'
+    compile 'org.slf4j:slf4j-api:1.7.29'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'com.zaxxer:HikariCP:3.4.1'
+    compile 'com.google.inject:guice:4.2.2'
+    compile 'org.jooq:jooq:3.12.3'
+    compile 'org.javamoney:moneta:1.3'
+    compile 'com.google.code.gson:gson:2.8.6'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+    testCompile 'org.assertj:assertj-core:3.14.0'
+    testCompile 'org.jetbrains.kotlin:kotlin-test:1.3.61'
+    testImplementation 'io.rest-assured:rest-assured:4.1.2'
+    testImplementation 'io.mockk:mockk:1.9.3'
+
+    compile 'org.flywaydb:flyway-core:6.1.1'
+
+    runtime 'com.h2database:h2:1.4.200'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.revolut.TransactionApplicationKt'
+    }
+}
