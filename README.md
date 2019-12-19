@@ -1,7 +1,7 @@
-##Running tests
+## Running tests
 `./gradlew clean test`
 
-##Running the app
+## Running the app
 ```
 ./gradlew clean build
 java -jar ./build/libs/transaction-1.0-all.jar
@@ -9,23 +9,24 @@ java -jar ./build/libs/transaction-1.0-all.jar
 
 The app runs at port number **4567**
 
-##Available APIs
-|Purpose | URL|
-|-----|------|
-|Get list of accounts with available balance | GET /accounts|
-|Get account with available balance for the accountId | GET /accounts/:accountId|
-|Transfer money from one account to another | POST /transaction|
+## Available APIs
 
-##Seed data
-The application loads some accounts and users into in memory H2 DB on start.
+|Title |HTTP Method| URL|
+|-----|------|-----|
+|Get list of accounts with available balance | GET | /accounts|
+|Get account with available balance for the accountId | GET | /accounts/:accountId|
+|Transfer money from one account to another | POST | /transaction|
+
+## Seed data
+The application loads some accounts and users into in-memory H2 database on app-start.
 The seed data sql script is available at `src/main/resources/db.seed/accounts.sql`
 
-##Tech stack
+## Tech stack
 **Language**: Kotlin
 
 **Database**: H2 In-memory 
 
-###Libraries used
+### Libraries used
 
 |Name | Use|
 |-----|------|
